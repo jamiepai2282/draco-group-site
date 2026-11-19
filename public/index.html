@@ -219,6 +219,42 @@ td:last-child{font-weight:500;background:#FDF3F4}
 .dark .langs{color:var(--navy-soft);margin-top:24px;font-size:15px}
 
 
+
+/* brand */
+.quickstrip{padding:0;background:var(--navy)}
+.quickstrip .quick{margin:0;transform:translateY(50%)}
+.quickstrip+section{padding-top:112px}
+.quick a{box-shadow:0 8px 24px rgba(16,35,61,.14)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:28px}
+.pillars div{border-top:4px solid var(--crimson);padding-top:18px;display:flex;flex-direction:column;gap:6px}
+.pillars b{font-size:34px;font-weight:900;line-height:1.2;color:var(--crimson)}
+.pillars small{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.22em;color:var(--muted)}
+.pillars strong{font-size:20px;margin-top:6px}
+.pillars span{color:var(--muted);font-size:16px}
+.pillars.big b{font-size:clamp(40px,5vw,60px)}
+.pillars.compact span{display:none}
+.brand-hero{background:var(--crimson);color:#fff;position:relative;overflow:hidden;padding:96px 0}
+.brand-hero .eyebrow{color:var(--gold)}
+.brand-hero h2{font-size:clamp(34px,5.4vw,68px);max-width:14em;position:relative}
+.brand-hero .lead{color:#FFE9EC;margin-top:16px;font-size:20px;position:relative}
+.wing{position:absolute;right:-40px;bottom:-30px;width:min(620px,70%);color:var(--gold);opacity:.9}
+.vi{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:20px}
+.vi-card{border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px;background:var(--paper)}
+.vi-card.wide{grid-column:1/-1}
+.vi-card h3{font-size:20px;font-weight:900}
+.logo-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lp{border-radius:12px;display:flex;align-items:center;justify-content:center;padding:22px;min-height:130px}
+.lp.light{background:#fff;border:1px solid var(--line)}
+.lp.dark{background:var(--navy)}
+.lp img{max-height:84px;width:auto}
+.swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sw{border-radius:12px;min-height:130px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.sw b{font-size:17px}
+.sw span{font-family:var(--display);font-size:18px;letter-spacing:.06em}
+.brand-logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px}
+.brand-logos div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;gap:10px;font-weight:700}
+.brand-logos img{height:72px;width:auto}
+
 /* quick actions */
 .quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
 @media (max-width:560px){.quick{grid-template-columns:1fr}}
@@ -340,6 +376,12 @@ section{padding:48px 0}
 .map{max-height:none}
 .stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px}
 .stat b{font-size:48px}
+.quickstrip .quick{transform:none;padding:0 0 28px}
+.quickstrip+section{padding-top:48px}
+.brand-hero{padding:64px 0 120px}
+.wing{width:90%;right:-60px;bottom:-40px;opacity:.55}
+.logo-pair,.swatches{grid-template-columns:1fr}
+.sw{min-height:84px}
 .tabs{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:6px}
 .tab{flex:none;font-size:17px;padding:8px 16px;border:1.5px solid var(--line);border-radius:999px}
 .tab small{display:none}
@@ -379,6 +421,7 @@ section{padding:48px 0}
 <div class="wrap bar">
 <a href="#home" aria-label="DRACO GROUP"><img src="assets/draco.png" alt="DRACO Logistics"></a>
 <nav aria-label="Main" id="mainNav">
+<a href="#brand" id="navBrand">品牌理念</a>
 <a href="#services" data-i="nav2">服務項目</a>
 <a href="#warehousing" data-i="nav7">倉儲據點</a>
 <a href="#tools" id="navTool">線上試算</a>
@@ -402,7 +445,7 @@ section{padding:48px 0}
 <p class="eyebrow" data-i="heroEye">DRACO GROUP 登泰集團</p>
 <h1 data-h="heroH1">全方位物流<br><em>專業團隊</em></h1>
 <p class="lead" data-i="heroLead">致力於為企業提供一站式供應鏈解決方案的綜合物流服務企業。從 2010 年東莞起步，如今集團公司遍及兩岸三地、東南亞與美國。</p>
-<div class="quick" id="quick"></div>
+<div class="cta"><a class="btn" href="#brand" id="heroMore"></a><a class="btn ghost js-quote" href="#quote"></a></div>
 </div>
 <div class="map"><canvas id="routes" role="img" aria-label="集團據點航線示意圖"></canvas></div>
 </div>
@@ -411,6 +454,63 @@ section{padding:48px 0}
 <div class="stat"><b data-count="14">14</b><span data-i="st2">家集團公司</span></div>
 <div class="stat"><b data-count="3">3</b><span data-i="st3">個物流品牌</span></div>
 <div class="stat"><b data-count="350" data-suffix="+">350+</b><span data-i="st4">全球服務據點</span></div>
+</div>
+</div>
+</section>
+
+<section class="quickstrip" data-page="home">
+<div class="wrap"><div class="quick" id="quick"></div></div>
+</section>
+
+<section id="pillars-home" data-page="home" style="padding-bottom:40px">
+<div class="wrap">
+<div class="pillars" id="pillarsHome"></div>
+</div>
+</section>
+
+<section class="brand-hero" data-page="brand">
+<svg class="wing" aria-hidden="true" viewBox="0 0 600 360" fill="none"><path d="M20 330C170 250 330 150 580 120" stroke="currentColor" stroke-width="26" stroke-linecap="round"></path><path d="M90 250C210 170 350 90 560 40" stroke="currentColor" stroke-width="18" stroke-linecap="round" opacity=".7"></path><path d="M190 170C280 110 380 50 500 10" stroke="currentColor" stroke-width="11" stroke-linecap="round" opacity=".45"></path></svg>
+<div class="wrap">
+<p class="eyebrow">Brand</p>
+<h2 id="brandH2"></h2>
+<p class="lead" id="brandLead"></p>
+</div>
+</section>
+
+<section data-page="brand">
+<div class="wrap">
+<div class="head"><p class="eyebrow">Mind Identity</p><h2 id="miH"></h2></div>
+<div class="pillars big" id="pillars"></div>
+<div class="vals" id="vals" style="margin-top:32px"></div>
+</div>
+</section>
+
+<section data-page="brand" style="background:#fff;border-top:1px solid var(--line)">
+<div class="wrap">
+<div class="head"><p class="eyebrow">Visual Identity</p><h2 id="viH"></h2></div>
+<div class="vi">
+<div class="vi-card">
+<h3 id="logoT"></h3>
+<div class="logo-pair">
+<div class="lp light"><img src="assets/draco.png" alt="DRACO Logistics"></div>
+<div class="lp dark"><img src="assets/draco-light.png" alt="DRACO Logistics, light version"></div>
+</div>
+<p id="logoD"></p>
+<p><span class="ph" id="logoPh"></span></p>
+</div>
+<div class="vi-card">
+<h3 id="colT"></h3>
+<div class="swatches" id="swatches"></div>
+<p><span class="ph" id="colNote"></span></p>
+</div>
+<div class="vi-card wide">
+<h3 id="brT"></h3>
+<div class="brand-logos">
+<div><img src="assets/draco.png" alt="DRACO Logistics"><span data-i="bDraco">登泰國際物流</span></div>
+<div><img src="assets/seal.png" alt="SEAL GLOBAL Logistics"><span data-i="bSeal">崧盛</span></div>
+<div><img src="assets/hrhino.png" alt="H.RHINO Logistics"><span data-i="bRhino">翃熙</span></div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -440,13 +540,6 @@ section{padding:48px 0}
 </div>
 </section>
 
-<section id="why" data-page="home" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:64px">
-<div class="wrap">
-<p class="slogan" id="slogan"></p>
-<h2 id="whyH2" style="margin-bottom:28px"></h2>
-<div class="vas" id="why-list"></div>
-</div>
-</section>
 
 <section id="entries" data-page="home" style="padding-top:0">
 <div class="wrap">
@@ -555,7 +648,6 @@ section{padding:48px 0}
 <h2 id="abH2"></h2>
 <p class="lead" id="abP"></p>
 </div>
-<div class="vals" id="vals"></div>
 </div>
 </section>
 
@@ -724,6 +816,7 @@ section{padding:48px 0}
 <script src="i18n-dg.js"></script>
 <script src="i18n-copy.js"></script>
 <script src="i18n-lite.js"></script>
+<script src="i18n-brand.js"></script>
 <script src="tool.js"></script>
 <script src="site.js"></script>
 </body>
