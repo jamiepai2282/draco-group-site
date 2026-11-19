@@ -51,7 +51,7 @@ header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid 
 .topbar .lang button{color:#fff;font-size:13px;padding:3px 10px}
 .topbar .lang button[aria-pressed="true"]{background:#fff;color:var(--ink)}
 .actions{display:flex;flex-wrap:wrap;gap:10px}
-@media (max-width:760px){header{position:static}nav{margin-left:0;gap:0 18px;font-size:16px}.bar{gap:8px 16px}}
+
 .actions .btn{padding:9px 18px}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
 .bar img{height:44px;width:auto}
@@ -313,6 +313,49 @@ footer img{height:40px;width:auto}
 :lang(en) .specs b{font-size:34px}
 :lang(en) .tab{font-size:24px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.menu-btn,.m-only{display:none}
+@media (max-width:760px){
+header{position:sticky;top:-36px}
+.topbar .wrap{height:36px;padding-top:0;padding-bottom:0}
+.bar{flex-wrap:wrap;gap:8px 10px;padding-top:8px;padding-bottom:8px}
+.bar img{height:36px}
+.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:8px;background:#fff;color:var(--ink);cursor:pointer;order:3;padding:0}
+.actions{margin-left:auto;order:2}
+.actions .ghost{display:none}
+.actions .btn{padding:10px 14px}
+nav{display:none;order:4;width:100%;margin:0;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid var(--line)}
+.bar.open nav{display:flex}
+nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:17px}
+nav a:last-child{border-bottom:0}
+nav a[aria-current="page"]:not(.btn){box-shadow:none}
+.m-only{display:block}
+section{padding:48px 0}
+.head{margin-bottom:28px}
+.hero{padding-top:36px}
+.hero-grid{gap:28px}
+.map{max-height:none}
+.stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px}
+.stat b{font-size:48px}
+.tabs{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:6px}
+.tab{flex:none;font-size:17px;padding:8px 16px;border:1.5px solid var(--line);border-radius:999px}
+.tab small{display:none}
+.tab[aria-selected="true"]{border:1.5px solid var(--crimson);background:var(--crimson);color:#fff}
+.panel{padding:22px;min-height:0}
+.site-info{padding:22px}
+.site-pics{grid-template-rows:none;grid-template-columns:1fr 1fr;min-height:0}
+.site-pics img{min-height:0;height:130px}
+.tl{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tl li{padding:12px}
+.tl time{font-size:22px}
+.tl strong{font-size:17px}
+.brand{padding:20px;gap:12px}
+.brand .logo{height:56px}
+.brand .logo img{max-height:56px}
+.sub{margin:44px 0 16px}
+.cta-band{padding:40px 0}
+.contact{padding:48px 0}
+#why{margin-bottom:40px}
+}
 </style>
 </head>
 <body>
@@ -331,16 +374,19 @@ footer img{height:40px;width:auto}
 </div>
 <div class="wrap bar">
 <a href="#home" aria-label="DRACO GROUP"><img src="assets/draco.png" alt="DRACO Logistics"></a>
-<nav aria-label="Main">
+<nav aria-label="Main" id="mainNav">
 <a href="#services" data-i="nav2">服務項目</a>
 <a href="#warehousing" data-i="nav7">倉儲據點</a>
 <a href="#tools" id="navTool">線上試算</a>
 <a href="#about" data-i="navAbout">關於集團</a>
+<a href="#draco-one" class="m-only" data-i="navWms">WMS 線上查詢</a>
+<a href="#contact" class="m-only" data-i="nav6">聯絡我們</a>
 </nav>
 <div class="actions">
 <a class="btn ghost" href="#draco-one" data-i="navWms">WMS 線上查詢</a>
 <a class="btn js-quote" href="#quote">線上詢價</a>
 </div>
+<button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav" aria-label="Menu"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
 </div>
 </header>
 

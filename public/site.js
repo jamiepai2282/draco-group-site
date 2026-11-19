@@ -231,7 +231,7 @@
     ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
     ctx.fillStyle = '#fff'; ctx.textAlign = 'center';
     ctx.font = '900 ' + (fs + 3) + font; ctx.fillText(T.hub, H[0], H[1] + 44);
-    ctx.fillStyle = '#C9D2DF'; ctx.font = '500 ' + (fs - 2) + font; ctx.fillText(T.hubSub, H[0], H[1] + 64);
+    if (w >= 420) { ctx.fillStyle = '#C9D2DF'; ctx.font = '500 ' + (fs - 2) + font; ctx.fillText(T.hubSub, H[0], H[1] + 64); }
 
     // 圖例
     var lx = 4, ly = h - 10; ctx.textAlign = 'left'; ctx.font = '500 ' + (fs - 2) + font;
@@ -274,9 +274,14 @@
     var p = location.hash.slice(1); if (!PAGES[p]) p = 'home';
     [].forEach.call(document.querySelectorAll('[data-page]'), function (s) { s.hidden = s.dataset.page !== p; });
     [].forEach.call(document.querySelectorAll('nav a, .actions a, .topbar a'), function (a) { if (a.getAttribute('href') === '#' + p) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    setMenu(false);
     window.scrollTo(0, 0);
     if (p === 'home') { if (still) draw(0); else { t0 = null; countUp(); } }
   }
+  var bar = document.querySelector('.bar'), menuBtn = document.getElementById('menuBtn');
+  function setMenu(open) { bar.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  menuBtn.addEventListener('click', function () { setMenu(!bar.classList.contains('open')); });
+  [].forEach.call(document.querySelectorAll('#mainNav a'), function (a) { a.addEventListener('click', function () { setMenu(false); }); });
   window.addEventListener('hashchange', route);
 
   render();
