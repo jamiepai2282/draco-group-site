@@ -89,17 +89,9 @@
 
     // 文案
     var K = T.copy;
-    txt('svLead', K.svLead); txt('abH2', K.abH2); txt('abP', K.abP);
-    // 品牌理念
-    var BR = T.brand;
-    txt('navBrand', BR.nav); txt('heroMore', BR.more); txt('brandH2', BR.h2); txt('brandLead', BR.lead); txt('miH', BR.miH); txt('viH', BR.viH);
-    txt('logoT', BR.logoT); txt('logoD', BR.logoD); txt('logoPh', BR.logoPh); txt('colT', BR.colT); txt('colNote', BR.colNote); txt('brT', BR.brT);
-    function pillar(p) { var d = el('div'); d.appendChild(el('b', p[0])); d.appendChild(el('small', p[1])); d.appendChild(el('strong', p[2])); d.appendChild(el('span', p[3])); return d; }
-    fill(document.getElementById('pillars'), BR.pillars.map(pillar));
-    var ph = document.getElementById('pillarsHome'); ph.className = 'pillars compact'; fill(ph, BR.pillars.map(pillar));
-    var SW = [['#B5182F', '#fff'], ['#E2BE4B', '#1B1D22'], ['#54575A', '#fff']];
-    fill(document.getElementById('swatches'), SW.map(function (c, i) { var d = el('div', null, 'sw'); d.style.background = c[0]; d.style.color = c[1]; d.appendChild(el('b', BR.cols[i])); d.appendChild(el('span', c[0])); return d; }));
-    fill(document.getElementById('vals'), K.vals.slice(0, 2).map(function (v) { var d = el('div'); d.appendChild(el('span', v[0])); d.appendChild(el('b', v[1])); return d; }));
+    txt('slogan', K.slogan); txt('whyH2', K.whyH2); txt('svLead', K.svLead); txt('abH2', K.abH2); txt('abP', K.abP);
+    fill(document.getElementById('why-list'), K.why.map(pair));
+    fill(document.getElementById('vals'), K.vals.map(function (v) { var d = el('div'); d.appendChild(el('span', v[0])); d.appendChild(el('b', v[1])); return d; }));
     [].forEach.call(document.querySelectorAll('[data-cta]'), function (h) { var c = K.cta[h.dataset.cta]; h.textContent = c[0]; h.nextElementSibling.textContent = c[1]; });
 
     // 首頁入口卡
@@ -277,7 +269,7 @@
   document.getElementById('qLogin').addEventListener('click', wmsNotice);
 
   // 分頁：依網址 # 後的名稱只顯示該頁的區塊
-  var PAGES = { home: 1, brand: 1, services: 1, warehousing: 1, 'draco-one': 1, tools: 1, quote: 1, about: 1, contact: 1 };
+  var PAGES = { home: 1, services: 1, warehousing: 1, 'draco-one': 1, tools: 1, quote: 1, about: 1, contact: 1 };
   function route() {
     var p = location.hash.slice(1); if (!PAGES[p]) p = 'home';
     [].forEach.call(document.querySelectorAll('[data-page]'), function (s) { s.hidden = s.dataset.page !== p; });
