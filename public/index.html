@@ -70,8 +70,8 @@ nav .btn{padding:8px 18px}
 
 [data-page][hidden]{display:none}
 nav a[aria-current="page"]:not(.btn){color:var(--crimson);box-shadow:0 2px 0 var(--crimson)}
-.entries{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));gap:16px}
-.entries a{display:flex;flex-direction:column;gap:8px;text-decoration:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:24px;min-height:160px}
+.entries{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
+.entries a{display:flex;flex-direction:column;gap:8px;text-decoration:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:24px;min-height:130px}
 .entries a:hover{border-color:var(--crimson)}
 .entries b{font-size:21px;font-weight:900}
 .entries span{color:var(--muted);font-size:15px;line-height:1.5}
@@ -218,6 +218,10 @@ td:last-child{font-weight:500;background:#FDF3F4}
 .dark .sub{color:#fff}
 .dark .langs{color:var(--navy-soft);margin-top:24px;font-size:15px}
 
+
+.weekly-frame{max-width:1160px;margin:0 auto;padding:0 24px}
+#weeklyHost{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#eef0f5}
+@media (max-width:760px){.weekly-frame{padding:0}#weeklyHost{border-radius:0;border-left:0;border-right:0}}
 
 /* quick actions */
 .quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
@@ -382,6 +386,7 @@ section{padding:48px 0}
 <a href="#services" data-i="nav2">服務項目</a>
 <a href="#warehousing" data-i="nav7">倉儲據點</a>
 <a href="#tools" id="navTool">線上試算</a>
+<a href="#weekly" id="navWeekly">登泰週報</a>
 <a href="#about" data-i="navAbout">關於集團</a>
 <a href="#draco-one" class="m-only" data-i="navWms">WMS 線上查詢</a>
 <a href="#contact" class="m-only" data-i="nav6">聯絡我們</a>
@@ -684,6 +689,21 @@ section{padding:48px 0}
 </div>
 </section>
 
+<section id="page-weekly" data-page="weekly" style="padding-bottom:32px">
+<div class="wrap">
+<div class="head" style="margin-bottom:20px">
+<p class="eyebrow">Weekly Report</p>
+<h2 id="weeklyH2"></h2>
+<p class="lead" id="weeklyLead"></p>
+<p class="hint" id="weeklyOnly"></p>
+</div>
+<div class="filters" id="weeklyIssues" role="group" aria-label="Issues" style="margin-bottom:12px"></div>
+<p class="hint" id="weeklyMsg" role="status" aria-live="polite"></p>
+</div>
+<div class="weekly-frame"><div id="weeklyHost"></div></div>
+<div class="wrap" style="margin-top:20px"><a class="btn ghost" id="weeklyOpen" href="#weekly" target="_blank" rel="noopener" hidden></a></div>
+</section>
+
 <section id="start" data-page="contact" class="light" style="background:#fff;border-bottom:1px solid var(--line)">
 <div class="wrap">
 <div class="head">
@@ -725,6 +745,7 @@ section{padding:48px 0}
 <script src="i18n-copy.js"></script>
 <script src="i18n-lite.js"></script>
 <script src="tool.js"></script>
+<script src="weekly.js"></script>
 <script src="site.js"></script>
 </body>
 </html>

@@ -95,12 +95,13 @@
     [].forEach.call(document.querySelectorAll('[data-cta]'), function (h) { var c = K.cta[h.dataset.cta]; h.textContent = c[0]; h.nextElementSibling.textContent = c[1]; });
 
     // 首頁入口卡
-    var HREF = ['#services', '#warehousing', '#draco-one', '#about', '#tools'];
+    var HREF = ['#services', '#warehousing', '#draco-one', '#about', '#tools', '#weekly'];
+    var WK = window.renderWeekly(lang); txt('navWeekly', WK.nav);
     var TX = window.renderTool(lang, T.modes); txt('navTool', TX.navTools);
     [].forEach.call(document.querySelectorAll('.js-quote'), function (a) { a.textContent = TX.navQuote; });
     var QH = ['#draco-one', '#tools', '#quote'];
     fill(document.getElementById('quick'), TX.tiles.map(function (x, i) { var a = el('a'); a.href = QH[i]; a.appendChild(el('b', x[0])); a.appendChild(el('span', x[1])); return a; }));
-    fill(document.getElementById('entryGrid'), T.entries.concat([TX.card]).map(function (x, i) { var a = el('a'); a.href = HREF[i]; a.appendChild(el('b', x[0])); a.appendChild(el('span', x[1])); var ar = el('i', '→'); ar.setAttribute('aria-hidden', 'true'); a.appendChild(ar); return a; }));
+    fill(document.getElementById('entryGrid'), T.entries.concat([TX.card, WK.card]).map(function (x, i) { var a = el('a'); a.href = HREF[i]; a.appendChild(el('b', x[0])); a.appendChild(el('span', x[1])); var ar = el('i', '→'); ar.setAttribute('aria-hidden', 'true'); a.appendChild(ar); return a; }));
 
     // 倉儲據點
     var W = T.wh;
@@ -269,7 +270,7 @@
   document.getElementById('qLogin').addEventListener('click', wmsNotice);
 
   // 分頁：依網址 # 後的名稱只顯示該頁的區塊
-  var PAGES = { home: 1, services: 1, warehousing: 1, 'draco-one': 1, tools: 1, quote: 1, about: 1, contact: 1 };
+  var PAGES = { home: 1, services: 1, warehousing: 1, 'draco-one': 1, tools: 1, quote: 1, weekly: 1, about: 1, contact: 1 };
   function route() {
     var p = location.hash.slice(1); if (!PAGES[p]) p = 'home';
     [].forEach.call(document.querySelectorAll('[data-page]'), function (s) { s.hidden = s.dataset.page !== p; });
