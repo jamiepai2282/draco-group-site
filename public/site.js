@@ -1,5 +1,5 @@
 (function () {
-  var I = window.I18N, lang = 'hant', svcKey = 'sea', filter = 'all';
+  var I = window.I18N, lang = 'hant', svcKey = 'sea', filter = 'all', offFilter = 'all';
   try { var saved = localStorage.getItem('draco-lang'); if (saved && I[saved]) lang = saved; } catch (e) {}
 
   // 集團公司：成立時間、品牌、城市代碼（nameCity 為公司名稱用的地名）
@@ -131,6 +131,31 @@
     fill(document.getElementById('qCan'), S.can.map(function (x) { return el('li', x); }));
     fill(document.getElementById('wmsSteps'), S.steps.map(stepLi));
     fill(document.getElementById('qc'), S.qc.map(pair));
+
+    // 各地據點
+    var OT = window.DRACO_OFFICE_TXT[lang] || window.DRACO_OFFICE_TXT.hant;
+    txt('offH2', OT.h2);
+    fill(document.getElementById('offFilters'), ['all', 'draco', 'seal', 'rhino'].map(function (f) {
+      var b = el('button', (f === 'all' ? T.all : T.brandShort[f]) + ' ' + counts[f], 'chip'); b.type = 'button'; b.dataset.f = f; b.setAttribute('aria-pressed', f === offFilter ? 'true' : 'false');
+      b.addEventListener('click', function () { offFilter = f; render(); });
+      return b;
+    }));
+    var offs = [];
+    COS.forEach(function (c, i) {
+      if (offFilter !== 'all' && c[1] !== offFilter) return;
+      var o = window.DRACO_OFFICES[i], a = el('article', null, 'office' + (o ? '' : ' todo')); a.style.setProperty('--b', COLOR[c[1]]);
+      var h = el('h3', T.coName(T.city[c[3] || c[2]], T.brandShort[c[1]])); h.appendChild(el('small', T.place[c[2]])); a.appendChild(h);
+      if (!o) { a.appendChild(el('p', OT.pending)); offs.push(a); return; }
+      var full = el('div', null, 'full'); full.appendChild(el('span', o.zh)); if (o.en !== o.zh) full.appendChild(el('span', o.en)); a.appendChild(full);
+      var dl = el('dl');
+      [[T.ctAddr, o.addr], [T.ctTel, o.tel]].forEach(function (r) {
+        dl.appendChild(el('dt', r[0])); var dd = el('dd');
+        if (r[2]) { var m = el('a', r[1]); m.href = 'mailto:' + r[1]; dd.appendChild(m); } else dd.textContent = r[1];
+        dl.appendChild(dd);
+      });
+      a.appendChild(dl); offs.push(a);
+    });
+    fill(document.getElementById('offices'), offs);
 
     // 合作流程
     txt('onbH2', T.onb.h2);

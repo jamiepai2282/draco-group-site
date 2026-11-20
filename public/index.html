@@ -223,6 +223,19 @@ td:last-child{font-weight:500;background:#FDF3F4}
 #weeklyHost{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#eef0f5}
 @media (max-width:760px){.weekly-frame{padding:0}#weeklyHost{border-radius:0;border-left:0;border-right:0}}
 
+.offices{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:16px}
+.office{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--b);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.office h3{font-size:21px;font-weight:900;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.office h3 small{font-size:14px;font-weight:500;color:var(--muted)}
+.office .full{font-size:14px;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
+.office .full span{display:block}
+.office dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:15px;border-top:1px solid var(--line);padding-top:10px}
+.office dt{color:var(--muted);white-space:nowrap}
+.office dd{margin:0;overflow-wrap:anywhere}
+.office a{color:var(--crimson)}
+.office.todo{border-style:dashed}
+.office.todo p{color:#5B4700;background:#FFF4C9;border-radius:6px;padding:4px 10px;align-self:flex-start;font-size:14px}
+
 /* quick actions */
 .quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
 @media (max-width:560px){.quick{grid-template-columns:1fr}}
@@ -601,6 +614,17 @@ section{padding:48px 0}
 </div>
 </section>
 
+<section id="office-list" data-page="contact">
+<div class="wrap">
+<div class="head" style="margin-bottom:24px">
+<p class="eyebrow">Offices</p>
+<h2 id="offH2"></h2>
+</div>
+<div class="filters" role="group" id="offFilters"></div>
+<div class="offices" id="offices"></div>
+</div>
+</section>
+
 <section class="cta-band" data-page="about">
 <div class="wrap">
 <div><h2 data-cta="about"></h2><p></p></div>
@@ -721,9 +745,6 @@ section{padding:48px 0}
 <p data-i="ctP">告訴我們起運地、目的地與貨物內容，由離你最近的據點回覆。</p>
 </div>
 <dl>
-<dt data-i="ctTel">電話</dt><dd><span class="ph" data-i="ctTelPh">[各據點電話]</span></dd>
-<dt data-i="ctMail">信箱</dt><dd><span class="ph" data-i="ctMailPh">[對外聯絡信箱]</span></dd>
-<dt data-i="ctAddr">地址</dt><dd><span class="ph" data-i="ctAddrPh">[總部與各據點地址]</span></dd>
 <dt data-i="ctWh">倉儲洽詢</dt><dd>jamie-hk@dracolog.com</dd>
 <dt data-i="ctWeb">網站</dt><dd>www.dracolog.com</dd>
 </dl>
@@ -744,6 +765,7 @@ section{padding:48px 0}
 <script src="i18n-dg.js"></script>
 <script src="i18n-copy.js"></script>
 <script src="i18n-lite.js"></script>
+<script src="offices.js"></script>
 <script src="tool.js"></script>
 <script src="weekly.js"></script>
 <script src="site.js"></script>
