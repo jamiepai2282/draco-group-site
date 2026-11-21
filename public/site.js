@@ -14,9 +14,9 @@
   var SVC_EN = { sea: 'OCEAN', air: 'AIR', land: 'TRUCKING & RAIL', wh: 'WAREHOUSING', cus: 'CUSTOMS' };
 
   function el(tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
-  function fill(node, kids) { node.textContent = ''; kids.forEach(function (k) { node.appendChild(k); }); }
+  function fill(node, kids) { if (!node) return; node.textContent = ''; kids.forEach(function (k) { node.appendChild(k); }); }
 
-  function txt(id, t) { document.getElementById(id).textContent = t; }
+  function txt(id, t) { var n = document.getElementById(id); if (n) n.textContent = t; }
   function pair(x) { var d = el('div'); d.appendChild(el('b', x[0])); d.appendChild(el('span', x[1])); return d; }
   function stepLi(x) { var li = el('li'); li.appendChild(el('b', x[0])); li.appendChild(el('span', x[1])); return li; }
 
@@ -98,6 +98,7 @@
     var HREF = ['#services', '#warehousing', '#draco-one', '#about', '#tools', '#weekly'];
     var WK = window.renderWeekly(lang); txt('navWeekly', WK.nav);
     var TX = window.renderTool(lang, T.modes); txt('navTool', TX.navTools);
+    if (window.renderHome) window.renderHome(lang, WK);
     [].forEach.call(document.querySelectorAll('.js-quote'), function (a) { a.textContent = TX.navQuote; });
     var QH = ['#draco-one', '#tools', '#quote'];
     fill(document.getElementById('quick'), TX.tiles.map(function (x, i) { var a = el('a'); a.href = QH[i]; a.appendChild(el('b', x[0])); a.appendChild(el('span', x[1])); return a; }));
@@ -161,12 +162,11 @@
     txt('onbH2', T.onb.h2);
     fill(document.getElementById('onbSteps'), T.onb.steps.map(stepLi));
 
-    cv.setAttribute('aria-label', T.mapLabel);
-    if (still) draw(0);
+    if (cv) { cv.setAttribute('aria-label', T.mapLabel); if (still) draw(0); }
   }
 
   // 首頁動畫：海、空、陸三種路線從珠三角出發，依序畫出後，飛機、貨輪、卡車來回行駛
-  var cv = document.getElementById('routes'), ctx = cv.getContext('2d');
+  var cv = document.getElementById('routes'), ctx = cv ? cv.getContext('2d') : null;
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hub = { lon: 113.8, lat: 22.8 };
   var COL = { air: '#E2BE4B', sea: '#7FD1E0', land: '#FF9A8B' };
@@ -302,7 +302,7 @@
     [].forEach.call(document.querySelectorAll('nav a, .actions a, .topbar a'), function (a) { if (a.getAttribute('href') === '#' + p) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     setMenu(false);
     window.scrollTo(0, 0);
-    if (p === 'home') { if (still) draw(0); else { t0 = null; countUp(); } }
+    if (p === 'home') { if (cv) { if (still) draw(0); else t0 = null; } if (!still) countUp(); }
   }
   var bar = document.querySelector('.bar'), menuBtn = document.getElementById('menuBtn');
   function setMenu(open) { bar.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
@@ -312,6 +312,6 @@
 
   render();
   route();
-  if (still) window.addEventListener('resize', function () { draw(0); }); else requestAnimationFrame(draw);
-  if (still && document.fonts && document.fonts.ready) document.fonts.ready.then(function () { draw(0); });
+  if (cv) { if (still) window.addEventListener('resize', function () { draw(0); }); else requestAnimationFrame(draw); }
+  if (cv && still && document.fonts && document.fonts.ready) document.fonts.ready.then(function () { draw(0); });
 })();

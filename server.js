@@ -5,7 +5,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, 'public');
 const PORT = process.env.PORT || 3000;
-const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.json': 'application/json; charset=utf-8' };
+const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.json': 'application/json; charset=utf-8', '.mp4': 'video/mp4', '.webp': 'image/webp' };
 
 // 密碼保護：在 Railway 的 Variables 設定 SITE_USER 與 SITE_PASSWORD 後才會啟用；兩個都沒設就不擋。
 const crypto = require('crypto');
@@ -44,7 +44,21 @@ http.createServer((req, res) => {
   fs.readFile(file, (err, data) => {
     if (err) { res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }); return res.end('Not found'); }
     const ext = path.extname(file).toLowerCase();
-    res.writeHead(200, { 'Content-Type': TYPES[ext] || 'application/octet-stream', 'Cache-Control': ext === '.html' || ext === '.js' ? 'no-cache' : 'public, max-age=86400' });
+    const head = { 'Content-Type': TYPES[ext] || 'application/octet-stream', 'Cache-Control': ext === '.html' || ext === '.js' || ext === '.css' ? 'no-cache' : 'public, max-age=86400', 'Accept-Ranges': 'bytes' };
+    // 影片需要支援分段讀取（Safari 與 iPhone 沒有這個就不會播放）
+    const m = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || '');
+    if (m) {
+      let start = m[1] === '' ? data.length - Number(m[2]) : Number(m[1]);
+      let end = m[1] !== '' && m[2] !== '' ? Number(m[2]) : data.length - 1;
+      if (isNaN(start) || start < 0 || start >= data.length || end < start) { res.writeHead(416, { 'Content-Range': 'bytes */' + data.length }); return res.end(); }
+      end = Math.min(end, data.length - 1);
+      head['Content-Range'] = 'bytes ' + start + '-' + end + '/' + data.length;
+      head['Content-Length'] = end - start + 1;
+      res.writeHead(206, head);
+      return res.end(data.subarray(start, end + 1));
+    }
+    head['Content-Length'] = data.length;
+    res.writeHead(200, head);
     res.end(data);
   });
 }).listen(PORT, '0.0.0.0', () => console.log('DRACO GROUP site listening on ' + PORT));

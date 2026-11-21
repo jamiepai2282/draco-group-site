@@ -3,387 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>登泰集團網站 初稿</title>
+<title>登泰集團 DRACO GROUP</title>
+<meta name="description" content="登泰集團：海運、空運、陸運、倉儲與報關一站式物流服務，據點遍及兩岸三地、東南亞與美國。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+Thai:wght@400;500;700;900&display=swap" media="print" onload="this.media='all'">
-<style>
-/* 版面：白底大字、酒紅主色、金色點綴；深藍區塊放航線圖與認證，單一淺色主題 */
-:root{
-  color-scheme: light;
-  --paper:#FAF9F7;
-  --card:#FFFFFF;
-  --ink:#1B1D22;
-  --muted:#5A5F68;
-  --line:#E3DFD8;
-  --crimson:#B5182F;
-  --gold:#E2BE4B;
-  --navy:#10233D;
-  --navy-soft:#C9D2DF;
-  --seal:#8C2A33;
-  --rhino:#8A6A00;
-  --display:'Barlow Condensed','Noto Sans TC','Noto Sans Thai','Arial Narrow',sans-serif;
-  --body:'Noto Sans TC','Noto Sans Thai','PingFang TC','Microsoft JhengHei','Thonburi',sans-serif;
-}
-*{box-sizing:border-box}
-
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-h1,h2,h3{margin:0;line-height:1.2;text-wrap:balance}
-h2{word-break:keep-all;overflow-wrap:anywhere}
-h2{font-size:clamp(26px,3.2vw,38px);font-weight:900;letter-spacing:.01em}
-p{margin:0}
-.eyebrow{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.22em;color:var(--crimson);text-transform:uppercase}
-.lead{color:var(--muted);max-width:38em}
-section{padding:72px 0}
-.head{display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
-.note:empty,.cta-band p:empty,.steps span:empty,.vas span:empty,.lead:empty{display:none}
-.vas.names{display:flex;flex-wrap:wrap;gap:10px}
-.vas.names div{border:1.5px solid var(--ink);border-radius:999px;padding:6px 18px}
-.vas.names b{font-size:17px}
-.ph{background:#FFF4C9;border-radius:4px;padding:0 6px;color:#5B4700}
-
-/* header */
-header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
-.topbar{background:var(--ink);color:#fff;font-size:14px}
-.topbar .wrap{display:flex;justify-content:flex-end;align-items:center;gap:20px;padding-top:6px;padding-bottom:6px}
-.topbar a{text-decoration:none}
-.topbar a:hover{text-decoration:underline}
-.topbar .lang{border-color:rgba(255,255,255,.5)}
-.topbar .lang button{color:#fff;font-size:13px;padding:3px 10px}
-.topbar .lang button[aria-pressed="true"]{background:#fff;color:var(--ink)}
-.actions{display:flex;flex-wrap:wrap;gap:10px}
-
-.actions .btn{padding:9px 18px}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
-.bar img{height:44px;width:auto}
-nav{display:flex;flex-wrap:wrap;gap:4px 28px;align-items:center;font-weight:700;font-size:17px;margin-right:auto;margin-left:12px}
-nav a{text-decoration:none;padding:8px 0}
-nav a:hover{color:var(--crimson)}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--crimson);color:#fff;text-decoration:none;font-weight:700;padding:11px 22px;border-radius:8px;border:0;font:inherit;font-weight:700;cursor:pointer}
-.btn:hover{background:#96132a}
-nav .btn{padding:8px 18px}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:#fff}
-
-[data-page][hidden]{display:none}
-nav a[aria-current="page"]:not(.btn){color:var(--crimson);box-shadow:0 2px 0 var(--crimson)}
-.entries{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
-.entries a{display:flex;flex-direction:column;gap:8px;text-decoration:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:24px;min-height:130px}
-.entries a:hover{border-color:var(--crimson)}
-.entries b{font-size:21px;font-weight:900}
-.entries span{color:var(--muted);font-size:15px;line-height:1.5}
-.entries i{margin-top:auto;font-style:normal;font-family:var(--display);font-size:28px;line-height:1;color:var(--crimson)}
-
-.slogan{font-size:clamp(20px,2.4vw,26px);font-weight:700;line-height:1.4;color:var(--crimson);margin-bottom:12px;text-wrap:balance}
-.vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px}
-.vals div{background:var(--card);border:1px solid var(--line);border-top:6px solid var(--gold);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:6px}
-.vals span{font-size:15px;color:var(--muted);font-weight:700}
-.vals b{font-size:20px;line-height:1.5}
-.cta-band{background:var(--ink);color:#fff;padding:56px 0}
-.cta-band .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
-.cta-band h2{font-size:clamp(24px,3vw,34px)}
-.cta-band p{color:#D5D8DE;margin-top:8px;max-width:36em}
-
-/* hero */
-.hero{padding:64px 0 0;background:var(--navy);color:#fff}
-.hero .eyebrow{color:var(--gold)}
-.hero h1 em{color:var(--gold)}
-.hero .lead{color:var(--navy-soft)}
-.hero .modes span{border-color:rgba(255,255,255,.7)}
-.hero .btn.ghost{color:#fff;border-color:#fff}
-.hero .btn.ghost:hover{background:#fff;color:var(--navy)}
-.hero .stats{border-top-color:rgba(255,255,255,.35);margin-top:40px}
-.hero .stat b{color:var(--gold)}
-.hero .stat span{color:var(--navy-soft)}
-.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:48px;align-items:center}
-.hero-copy{display:flex;flex-direction:column;gap:22px}
-h1{font-size:clamp(38px,5.2vw,64px);font-weight:900;letter-spacing:.01em}
-h1 em{font-style:normal;color:var(--crimson)}
-.modes{display:flex;flex-wrap:wrap;gap:10px}
-.modes span{border:1.5px solid var(--ink);border-radius:999px;padding:4px 16px;font-weight:700;font-size:16px}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.map{aspect-ratio:1/1;max-height:560px;width:100%;position:relative;justify-self:center}
-.map canvas{width:100%;height:100%;display:block}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));margin-top:64px;border-top:2px solid var(--ink)}
-.stat{padding:24px 20px 28px 0;display:flex;flex-direction:column;gap:2px}
-.stat b{font-family:var(--display);font-weight:700;font-size:64px;line-height:1;color:var(--crimson);font-variant-numeric:tabular-nums}
-.stat span{color:var(--muted);font-size:16px}
-
-/* brands */
-.brands{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px}
-.brand{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;border-top:6px solid var(--b)}
-.brand .logo{height:84px;display:flex;align-items:center}
-.brand .logo img{max-height:84px;width:auto}
-.brand h3{font-size:24px;font-weight:900}
-.brand h3 small{display:block;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.18em;color:var(--muted)}
-.brand ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.brand li{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:15px}
-
-/* services */
-.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:32px;align-items:start}
-.tabs{display:flex;flex-direction:column;gap:8px}
-.tab{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:16px 4px;font:inherit;font-size:26px;font-weight:900;color:var(--muted);cursor:pointer}
-.tab small{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.2em}
-.tab[aria-selected="true"]{color:var(--crimson);border-bottom:3px solid var(--crimson)}
-.tab:hover{color:var(--ink)}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:18px;min-height:360px}
-.panel h3{font-size:28px;font-weight:900}
-.panel ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:10px 24px}
-.panel li{padding-left:18px;position:relative}
-.panel li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:8px;background:var(--gold);border-radius:2px}
-.panel .note{color:var(--muted);font-size:15px;border-top:1px solid var(--line);padding-top:14px}
-.extra{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;align-items:center}
-.extra b{margin-right:6px}
-.extra span{background:var(--ink);color:#fff;border-radius:999px;padding:4px 16px;font-weight:500;font-size:16px}
-
-/* timeline */
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.chip{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:6px 18px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;color:var(--ink)}
-.chip[aria-pressed="true"]{background:var(--ink);color:#fff}
-.tl{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:14px;list-style:none;margin:0;padding:0}
-.tl li{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--b);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:2px}
-.tl time{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
-.tl strong{font-size:20px}
-.tl span{color:var(--muted);font-size:15px}
-.tl li[hidden]{display:none}
-
-
-/* warehousing */
-.sites{display:flex;flex-direction:column;gap:24px}
-.site{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr))}
-.site-info{padding:28px;display:flex;flex-direction:column;gap:14px}
-.site-info h3{font-size:28px;font-weight:900}
-.site-info .tag{color:var(--crimson);font-weight:700}
-.site-info .loc{color:var(--muted);font-size:15px}
-.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0}
-.specs div{display:flex;flex-direction:column}
-.specs b{font-family:var(--display);font-weight:700;font-size:38px;line-height:1.05;font-variant-numeric:tabular-nums}
-.specs span{color:var(--muted);font-size:15px;line-height:1.4}
-.site-info ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
-.site.nopic{grid-template-columns:1fr}
-.site.nopic .specs{grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr))}
-.site-info .loc.todo{background:#FFF4C9;color:#5B4700;border-radius:4px;padding:0 6px;align-self:flex-start}
-.site-pics{display:grid;grid-template-rows:1fr 1fr;gap:4px;min-height:320px;background:var(--line)}
-.site-pics img{width:100%;height:100%;object-fit:cover;min-height:160px}
-.more-sites{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:20px}
-.more-sites div{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 18px}
-.more-sites div b{margin-right:10px}
-.more-sites div span{color:var(--muted);font-size:15px}
-.sub{font-size:clamp(24px,3vw,32px);font-weight:900;margin:64px 0 20px}
-.vas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:0 28px}
-.vas div{border-top:2px solid var(--ink);padding:14px 0 22px;display:flex;flex-direction:column;gap:4px}
-.vas b{font-size:19px}
-.vas span{color:var(--muted);font-size:15px}
-.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-table{border-collapse:collapse;width:100%;min-width:620px}
-th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}
-thead th{font-size:15px;color:var(--muted)}
-thead th:last-child{color:var(--crimson)}
-td:first-child{font-weight:700;white-space:nowrap}
-td:last-child{font-weight:500;background:#FDF3F4}
-.bond{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;counter-reset:b}
-.bond div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:6px}
-.bond b{font-size:20px}
-.bond span{color:var(--muted);font-size:15px}
-.bondnote{margin-top:16px;border-left:4px solid var(--gold);padding:6px 0 6px 16px;max-width:44em}
-
-/* wms */
-.wms-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr));gap:40px;align-items:start}
-.query{background:#fff;color:var(--ink);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px}
-.query h3{font-size:26px;font-weight:900}
-.query ul{margin:0;padding-left:1.2em;color:var(--muted);font-size:15px}
-.query form{display:flex;flex-direction:column;gap:10px}
-.query label{font-weight:700;font-size:15px}
-.query input{font:inherit;padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;width:100%}
-.query input:focus{border-color:var(--ink);outline:none}
-.query .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.query .msg{background:#FFF4C9;color:#5B4700;border-radius:10px;padding:10px 14px;font-size:15px}
-.query .msg:empty{display:none}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:0 20px;counter-reset:s}
-.steps li{counter-increment:s;border-top:2px solid var(--gold);padding:12px 0 20px;display:flex;flex-direction:column;gap:4px}
-.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--gold)}
-.steps b{font-size:19px}
-.steps span{font-size:15px;color:var(--navy-soft)}
-.light .steps li{border-top-color:var(--ink)}
-.light .steps li::before{color:var(--crimson)}
-.light .steps span{color:var(--muted)}
-.qc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:0 32px}
-.qc div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column}
-.qc b{font-size:19px}
-.qc span{color:var(--navy-soft);font-size:15px}
-.dark .sub{color:#fff}
-.dark .langs{color:var(--navy-soft);margin-top:24px;font-size:15px}
-
-
-.weekly-frame{max-width:1160px;margin:0 auto;padding:0 24px}
-#weeklyHost{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#eef0f5}
-@media (max-width:760px){.weekly-frame{padding:0}#weeklyHost{border-radius:0;border-left:0;border-right:0}}
-
-.offices{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:16px}
-.office{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--b);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px}
-.office h3{font-size:21px;font-weight:900;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.office h3 small{font-size:14px;font-weight:500;color:var(--muted)}
-.office .full{font-size:14px;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
-.office .full span{display:block}
-.office dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:15px;border-top:1px solid var(--line);padding-top:10px}
-.office dt{color:var(--muted);white-space:nowrap}
-.office dd{margin:0;overflow-wrap:anywhere}
-.office a{color:var(--crimson)}
-.office.todo{border-style:dashed}
-.office.todo p{color:#5B4700;background:#FFF4C9;border-radius:6px;padding:4px 10px;align-self:flex-start;font-size:14px}
-
-/* quick actions */
-.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
-@media (max-width:560px){.quick{grid-template-columns:1fr}}
-.quick a{display:flex;flex-direction:column;gap:4px;text-decoration:none;background:#fff;color:var(--ink);border-radius:12px;padding:16px 18px;border-bottom:4px solid var(--gold)}
-.quick a:hover{border-bottom-color:var(--crimson)}
-.quick b{font-size:18px;font-weight:900}
-.quick span{font-size:14px;color:var(--muted);line-height:1.45}
-
-/* tool */
-.ttabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;border-bottom:2px solid var(--line)}
-.ttabs button{font:inherit;font-weight:700;font-size:17px;background:transparent;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:10px 6px;margin-right:18px;color:var(--muted);cursor:pointer}
-.ttabs button[aria-selected="true"]{color:var(--crimson);border-bottom-color:var(--crimson)}
-.tool[hidden],#quoteResult[hidden]{display:none!important}
-.tool-form select,.tool-form textarea,.quote-form input{font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;width:100%;background:#fff;color:var(--ink)}
-.tool-form select:focus,.tool-form textarea:focus,.quote-form input:focus{border-color:var(--ink);outline:none}
-.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:14px}
-.quote-form{max-width:860px}
-.hint:empty{display:none}
-.mrows{display:flex;flex-direction:column;gap:8px;overflow-x:auto}
-.mrow{display:grid;grid-template-columns:minmax(90px,1.6fr) repeat(5,minmax(58px,1fr)) 36px;gap:6px;align-items:center;min-width:470px}
-.mhead span{font-size:13px;font-weight:700;color:var(--muted)}
-.mrow input{font:inherit;font-size:16px;font-variant-numeric:tabular-nums;padding:8px;border:1.5px solid var(--line);border-radius:8px;width:100%;min-width:0;background:#fff;color:var(--ink)}
-.mrow input:focus{border-color:var(--ink);outline:none}
-.mdel{font:inherit;font-size:20px;line-height:1;height:36px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);cursor:pointer}
-.mdel:disabled{opacity:.35;cursor:default}
-.pal-lines{margin:0;padding-left:1.2em;color:var(--muted);font-size:15px}
-.tool{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px;align-items:start}
-.tool-form{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px}
-.tool-form label{display:block;font-weight:700;font-size:15px;margin-bottom:4px}
-.tool-form input[type=number]{font:inherit;font-size:20px;font-variant-numeric:tabular-nums;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;width:100%;background:#fff;color:var(--ink)}
-.tool-form input[type=number]:focus{border-color:var(--ink);outline:none}
-.f3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.check{display:flex;gap:10px;align-items:center}
-.check input{width:20px;height:20px;accent-color:var(--crimson);flex:none}
-.check label{margin:0;font-weight:500}
-.tool-note{font-size:14px;color:var(--muted);line-height:1.6}
-.tool-form .btn{align-self:flex-start}
-.tool-out{display:flex;flex-direction:column;gap:14px}
-.verdict{font-size:clamp(22px,2.6vw,30px);font-weight:900;line-height:1.35;color:var(--crimson)}
-.verdict.warn{color:var(--ink)}
-.hint{background:#FFF4C9;color:#5B4700;border-radius:10px;padding:10px 14px;font-size:15px}
-.totals{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;border-top:2px solid var(--ink);padding-top:12px}
-.totals dt{font-size:14px;color:var(--muted)}
-.totals dd{margin:0;font-family:var(--display);font-weight:700;font-size:28px;line-height:1.2;font-variant-numeric:tabular-nums}
-.cbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
-.cbox.pick{border:2px solid var(--crimson)}
-.cbox-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.cbox-top b{font-size:20px}
-.pill{border-radius:999px;padding:2px 12px;font-size:14px;font-weight:700;background:#E9ECEF;color:#3F454D}
-.cbox.ok .pill{background:#DDF3E4;color:#12602F}
-.cbox.over .pill{background:#FFE6C7;color:#7A4300}
-.cspec{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
-.cfit{font-weight:700}
-.blabel{font-size:14px;color:var(--muted);margin-top:4px}
-.ubar{height:10px;border-radius:999px;background:#ECE8E1;overflow:hidden}
-.ubar i{display:block;height:100%;background:var(--navy);border-radius:999px}
-.ubar i.full{background:var(--crimson)}
-
-/* dark band */
-.dark{background:var(--navy);color:#fff}
-.dark .eyebrow{color:var(--gold)}
-.dark .lead{color:var(--navy-soft)}
-.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:0 32px;list-style:none;margin:0;padding:0}
-.certs li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column}
-.certs b{font-size:19px}
-.certs span{color:var(--navy-soft);font-size:15px}
-.partners{margin-top:56px;display:flex;flex-direction:column;gap:14px}
-.partners h3{font-size:22px;font-weight:900}
-.partners p{font-family:var(--display);font-weight:500;font-size:22px;letter-spacing:.06em;line-height:1.6;color:var(--navy-soft)}
-
-/* esg */
-.esg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px}
-.esg article{border-top:3px solid var(--ink);padding-top:20px;display:flex;flex-direction:column;gap:12px}
-.esg .k{font-family:var(--display);font-weight:700;font-size:64px;line-height:.9;color:var(--crimson)}
-.esg h3{font-size:24px;font-weight:900}
-.esg ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px}
-
-/* contact */
-.contact{background:var(--crimson);color:#fff;padding:72px 0}
-.contact .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:36px;align-items:center}
-.contact h2{color:#fff}
-.contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 20px}
-.contact dt{font-weight:700;color:#FFE08A}
-.contact dd{margin:0}
-.contact .ph{background:rgba(255,255,255,.2);color:#fff}
-footer{background:var(--ink);color:#C9CCD2;padding:28px 0;font-size:15px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
-footer img{height:40px;width:auto}
-.lang{display:flex;border:1px solid var(--ink);border-radius:6px;overflow:hidden}
-.lang button{border:0;background:transparent;font:inherit;font-weight:700;font-size:15px;padding:6px 12px;cursor:pointer;color:var(--ink)}
-.lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
-:lang(en) h1,:lang(th) h1{letter-spacing:0}
-:lang(th) body{line-height:1.85}
-:lang(th) h1,:lang(th) h2,:lang(th) h3{line-height:1.4}
-:lang(th) .specs b{font-size:30px;line-height:1.3}
-:lang(en) .specs b{font-size:34px}
-:lang(en) .tab{font-size:24px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-.menu-btn,.m-only{display:none}
-@media (max-width:760px){
-header{position:sticky;top:-36px}
-.topbar .wrap{height:36px;padding-top:0;padding-bottom:0}
-.bar{flex-wrap:wrap;gap:8px 10px;padding-top:8px;padding-bottom:8px}
-.bar img{height:36px}
-.menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:8px;background:#fff;color:var(--ink);cursor:pointer;order:3;padding:0}
-.actions{margin-left:auto;order:2}
-.actions .ghost{display:none}
-.actions .btn{padding:10px 14px}
-nav{display:none;order:4;width:100%;margin:0;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid var(--line)}
-.bar.open nav{display:flex}
-nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:17px}
-nav a:last-child{border-bottom:0}
-nav a[aria-current="page"]:not(.btn){box-shadow:none}
-.m-only{display:block}
-section{padding:48px 0}
-.head{margin-bottom:28px}
-.hero{padding-top:36px}
-.hero-grid{gap:28px}
-.map{max-height:none}
-.stats{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px}
-.stat b{font-size:48px}
-.tabs{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:6px}
-.tab{flex:none;font-size:17px;padding:8px 16px;border:1.5px solid var(--line);border-radius:999px}
-.tab small{display:none}
-.tab[aria-selected="true"]{border:1.5px solid var(--crimson);background:var(--crimson);color:#fff}
-.panel{padding:22px;min-height:0}
-.site-info{padding:22px}
-.site-pics{grid-template-rows:none;grid-template-columns:1fr 1fr;min-height:0}
-.site-pics img{min-height:0;height:130px}
-.tl{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.tl li{padding:12px}
-.tl time{font-size:22px}
-.tl strong{font-size:17px}
-.brand{padding:20px;gap:12px}
-.brand .logo{height:56px}
-.brand .logo img{max-height:56px}
-.sub{margin:44px 0 16px}
-.cta-band{padding:40px 0}
-.contact{padding:48px 0}
-#why{margin-bottom:40px}
-}
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Noto+Sans+TC:wght@400;700&family=Noto+Sans+Thai:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="intro" role="dialog" aria-modal="true" aria-label="開場影片">
+<button type="button" id="skip">略過</button>
+<div id="scenes"></div>
+<div class="reel-cap" aria-live="polite"><small id="reelNo">01 / 05</small><b id="reelText"></b><div class="reel-bar" id="reelBar"><i></i><i></i><i></i><i></i><i></i></div></div>
+<div class="reel-end" id="reelEnd"><img src="assets/draco-light.png" alt="DRACO Logistics"></div>
+</div>
 
 <header>
 <div class="topbar">
-<div class="wrap">
+<div class="container">
 <a href="#contact" data-i="nav6">聯絡我們</a>
 <div class="lang" role="group" aria-label="Language">
 <button type="button" id="lang-hant" data-l="hant" aria-pressed="true">繁體</button>
@@ -393,7 +30,7 @@ section{padding:48px 0}
 </div>
 </div>
 </div>
-<div class="wrap bar">
+<div class="container bar">
 <a href="#home" aria-label="DRACO GROUP"><img src="assets/draco.png" alt="DRACO Logistics"></a>
 <nav aria-label="Main" id="mainNav">
 <a href="#services" data-i="nav2">服務項目</a>
@@ -413,69 +50,106 @@ section{padding:48px 0}
 </header>
 
 <main id="top">
-<section class="hero" data-page="home">
-<div class="wrap">
-<div class="hero-grid">
-<div class="hero-copy">
-<p class="eyebrow" data-i="heroEye">DRACO GROUP 登泰集團</p>
-<h1 data-h="heroH1">全方位物流<br><em>專業團隊</em></h1>
-<p class="lead" data-i="heroLead">致力於為企業提供一站式供應鏈解決方案的綜合物流服務企業。從 2010 年東莞起步，如今集團公司遍及兩岸三地、東南亞與美國。</p>
-<div class="quick" id="quick"></div>
+<section class="console" data-page="home" aria-labelledby="h-h1">
+<div class="container console-grid">
+<div>
+<h1 id="h-h1">要查什麼，<br>從這裡開始。</h1>
+<p class="lead" id="h-lead"></p>
+<div class="phone"><span><span id="h-hk">香港</span> +852 2482 9869</span><span><span id="h-kh">高雄</span> +886 7 332 9111</span><a href="#contact" id="h-more">其他據點</a></div>
 </div>
-<div class="map"><canvas id="routes" role="img" aria-label="集團據點航線示意圖"></canvas></div>
+<div class="cs-panel">
+<div class="cs-tabs" role="tablist">
+<button type="button" role="tab" id="ht-0" aria-controls="h-p0" aria-selected="true"></button>
+<button type="button" role="tab" id="ht-1" aria-controls="h-p1" aria-selected="false" tabindex="-1"></button>
+<button type="button" role="tab" id="ht-2" aria-controls="h-p2" aria-selected="false" tabindex="-1"></button>
+<button type="button" role="tab" id="ht-3" aria-controls="h-p3" aria-selected="false" tabindex="-1"></button>
+<button type="button" role="tab" id="ht-4" aria-controls="h-p4" aria-selected="false" tabindex="-1"></button>
 </div>
-<div class="stats">
-<div class="stat"><b>2010</b><span data-i="st1">東莞登泰成立</span></div>
-<div class="stat"><b data-count="14">14</b><span data-i="st2">家集團公司</span></div>
-<div class="stat"><b data-count="3">3</b><span data-i="st3">個物流品牌</span></div>
-<div class="stat"><b data-count="350" data-suffix="+">350+</b><span data-i="st4">全球服務據點</span></div>
+<form class="cs-pane" id="h-p0" role="tabpanel" aria-labelledby="ht-0" novalidate>
+<h2 id="h-tr-h"></h2>
+<div class="cs-row"><div class="cs-field"><label for="h-cno" id="h-tr-l"></label><input id="h-cno" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="13"></div><button class="btn" type="submit" id="h-tr-b"></button></div>
+<div class="cs-out" id="h-trackOut" aria-live="polite"></div>
+<p class="cs-note" id="h-tr-n"></p>
+</form>
+<form class="cs-pane" id="h-p1" role="tabpanel" aria-labelledby="ht-1" hidden novalidate>
+<h2 id="h-sc-h"></h2>
+<div class="cs-g3">
+<div class="cs-field"><label for="h-pol" id="h-sc-pol"></label><select id="h-pol"></select></div>
+<div class="cs-field"><label for="h-pod" id="h-sc-pod"></label><input id="h-pod"></div>
+<div class="cs-field"><label for="h-etd" id="h-sc-wk"></label><input id="h-etd" type="week"></div>
+</div>
+<div><button class="btn" type="submit" id="h-sc-b"></button></div>
+<div class="cs-out" id="h-schedOut" aria-live="polite"></div>
+</form>
+<div class="cs-pane cs-one" id="h-p2" role="tabpanel" aria-labelledby="ht-2" hidden>
+<h2 id="h-one-h"></h2>
+<p id="h-one-p"></p>
+<ul id="h-one-list"></ul>
+<div class="cs-acts"><a class="btn" href="#draco-one" id="h-one-login"></a><a class="btn ghost" href="#contact" id="h-one-apply"></a></div>
+<p class="cs-note"><span class="cs-todo" id="h-one-pend"></span></p>
+</div>
+<form class="cs-pane" id="h-p3" role="tabpanel" aria-labelledby="ht-3" hidden novalidate>
+<h2 id="h-ca-h"></h2>
+<div class="cs-g5">
+<div class="cs-field"><label for="h-cl" id="h-ca-l0"></label><input id="h-cl" type="number" inputmode="decimal" value="60" min="1"></div>
+<div class="cs-field"><label for="h-cw" id="h-ca-l1"></label><input id="h-cw" type="number" inputmode="decimal" value="40" min="1"></div>
+<div class="cs-field"><label for="h-ch" id="h-ca-l2"></label><input id="h-ch" type="number" inputmode="decimal" value="40" min="1"></div>
+<div class="cs-field"><label for="h-ck" id="h-ca-l3"></label><input id="h-ck" type="number" inputmode="decimal" value="15" min="0"></div>
+<div class="cs-field"><label for="h-cq" id="h-ca-l4"></label><input id="h-cq" type="number" inputmode="numeric" value="300" min="1"></div>
+</div>
+<div class="cs-out" id="h-calcOut" aria-live="polite"></div>
+<p class="cs-note" id="h-ca-n"></p>
+</form>
+<form class="cs-pane" id="h-p4" role="tabpanel" aria-labelledby="ht-4" hidden novalidate>
+<h2 id="h-qu-h"></h2>
+<div class="cs-g3">
+<div class="cs-field"><label for="h-qs" id="h-qu-svc"></label><select id="h-qs"></select></div>
+<div class="cs-field"><label for="h-qf" id="h-qu-from"></label><input id="h-qf"></div>
+<div class="cs-field"><label for="h-qt" id="h-qu-to"></label><input id="h-qt"></div>
+</div>
+<div class="cs-g2">
+<div class="cs-field"><label for="h-qv" id="h-qu-vol"></label><input id="h-qv"></div>
+<div class="cs-field"><label for="h-qc" id="h-qu-who"></label><input id="h-qc"></div>
+</div>
+<div><button class="btn" type="submit" id="h-qu-b"></button></div>
+<div class="cs-out" id="h-quoteOut" aria-live="polite"></div>
+</form>
 </div>
 </div>
 </section>
 
-<section id="brands" data-page="home" style="padding-bottom:40px">
-<div class="wrap">
+<div class="h-figs" data-page="home"><div class="container">
+<div><b>2010</b><span data-i="st1">東莞登泰成立</span></div>
+<div><b data-count="14">14</b><span data-i="st2">家集團公司</span></div>
+<div><b data-count="3">3</b><span data-i="st3">個物流品牌</span></div>
+<div><b data-count="350" data-suffix="+">350+</b><span data-i="st4">全球服務據點</span></div>
+</div></div>
+
+<section data-page="home"><div class="container">
+<div class="h-head"><h2 id="h-sv-h"></h2><p id="h-sv-p"></p></div>
+<div class="h-svc" id="h-svc"></div>
+</div></section>
+
+<figure class="h-road" data-page="home"><img id="h-road-img" src="assets/draco-truck.jpg" alt="" loading="lazy"><figcaption><b id="h-road"></b><span id="h-roadp"></span></figcaption></figure>
+
+<section class="h-wh" data-page="home"><div class="container">
+<div class="h-head"><h2 id="h-wh-h"></h2><p id="h-wh-p"></p></div>
+<div class="h-whs">
+<a class="big" href="#warehousing"><img src="assets/wh-hk-2.jpg" alt="" loading="lazy"><span class="cap"><b id="h-wh0n"></b><span id="h-wh0v"></span></span></a>
+<a class="sm" href="#warehousing"><img src="assets/wh-dgb-1.jpg" alt="" loading="lazy"><span class="cap"><b id="h-wh1n"></b><span id="h-wh1v"></span></span></a>
+<a class="sm" href="#warehousing"><img src="assets/wh-dg-1.jpg" alt="" loading="lazy"><span class="cap"><b id="h-wh2n"></b><span id="h-wh2v"></span></span></a>
+</div>
+<p class="h-more"><a href="#warehousing" id="h-wh-more"></a></p>
+</div></section>
+
+<section data-page="home"><div class="container h-news">
+<div><h2 id="h-wk-h"></h2><p id="h-wk-p"></p></div>
+<a class="h-news-card" href="#weekly"><small>W47　2026/11/18</small><b id="h-wk-read"></b></a>
+</div></section>
+
+<section id="page-services" data-page="services">
+<div class="container">
 <div class="head">
-<h2 data-i="brH2">集團品牌</h2>
-</div>
-<div class="brands">
-<article class="brand" style="--b:var(--crimson)">
-<div class="logo"><img src="assets/draco.png" alt="DRACO Logistics"></div>
-<h3><span data-i="bDraco">登泰國際物流</span><small>DRACO LOGISTICS</small></h3>
-<ul data-cities="draco"></ul>
-</article>
-<article class="brand" style="--b:var(--seal)">
-<div class="logo"><img src="assets/seal.png" alt="SEAL GLOBAL Logistics"></div>
-<h3><span data-i="bSeal">崧盛</span><small>SEAL GLOBAL LOGISTICS</small></h3>
-<ul data-cities="seal"></ul>
-</article>
-<article class="brand" style="--b:var(--gold)">
-<div class="logo"><img src="assets/hrhino.png" alt="H.RHINO Logistics"></div>
-<h3><span data-i="bRhino">翃熙</span><small>H.RHINO LOGISTICS</small></h3>
-<ul data-cities="rhino"></ul>
-</article>
-</div>
-</div>
-</section>
-
-<section id="why" data-page="home" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:64px">
-<div class="wrap">
-<p class="slogan" id="slogan"></p>
-<h2 id="whyH2" style="margin-bottom:28px"></h2>
-<div class="vas" id="why-list"></div>
-</div>
-</section>
-
-<section id="entries" data-page="home" style="padding-top:0">
-<div class="wrap">
-<div class="entries" id="entryGrid"></div>
-</div>
-</section>
-
-<section id="page-services" data-page="services" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-<div class="wrap">
-<div class="head">
-<p class="eyebrow">Services</p>
 <h2 data-i="svH2">海、空、陸、倉、關，一站到位</h2>
 <p class="lead" id="svLead"></p>
 </div>
@@ -483,7 +157,7 @@ section{padding:48px 0}
 <div class="tabs" role="tablist" id="tabs"></div>
 <div class="panel" id="svc-panel" role="tabpanel">
 <h3 id="svc-title"></h3>
-<p id="svc-pitch" style="font-size:19px;font-weight:500"></p>
+<p id="svc-pitch"></p>
 <ul id="svc-list"></ul>
 <p class="note" id="svc-note"></p>
 </div>
@@ -493,16 +167,15 @@ section{padding:48px 0}
 </section>
 
 <section class="cta-band" data-page="services">
-<div class="wrap">
+<div class="container">
 <div><h2 data-cta="services"></h2><p></p></div>
 <a class="btn js-quote" href="#quote">線上詢價</a>
 </div>
 </section>
 
 <section id="page-warehousing" data-page="warehousing">
-<div class="wrap">
+<div class="container">
 <div class="head">
-<p class="eyebrow">Warehousing</p>
 <h2 id="whH2"></h2>
 <p class="lead" id="whLead"></p>
 </div>
@@ -511,7 +184,7 @@ section{padding:48px 0}
 <h3 class="sub" id="vasH"></h3>
 <div class="vas names" id="vas"></div>
 <h3 class="sub" id="hubH"></h3>
-<p class="lead" id="hubLead" style="margin-bottom:20px"></p>
+<p class="lead" id="hubLead"></p>
 <div class="tablebox"><table id="hubTable"></table></div>
 <h3 class="sub" id="bondH"></h3>
 <div class="bond" id="bond"></div>
@@ -520,23 +193,22 @@ section{padding:48px 0}
 </section>
 
 <section class="cta-band" data-page="warehousing">
-<div class="wrap">
+<div class="container">
 <div><h2 data-cta="warehousing"></h2><p></p></div>
 <a class="btn js-quote" href="#quote">線上詢價</a>
 </div>
 </section>
 
 <section id="page-draco-one" data-page="draco-one" class="dark">
-<div class="wrap">
+<div class="container">
 <div class="wms-top">
-<div class="head" style="margin:0">
-<p class="eyebrow">DRACO ONE · Warehouse Management System</p>
+<div class="head">
 <h2 id="wmsH2"></h2>
 <p class="lead" id="wmsLead"></p>
 </div>
 <div class="query">
 <h3 id="qH"></h3>
-<p id="qLead" style="font-size:15px;color:var(--muted)"></p>
+<p id="qLead"></p>
 <ul id="qCan"></ul>
 <form id="qForm" novalidate>
 <label for="q-account" id="qL1"></label>
@@ -560,27 +232,60 @@ section{padding:48px 0}
 </section>
 
 <section class="cta-band" data-page="draco-one">
-<div class="wrap">
+<div class="container">
 <div><h2 data-cta="draco-one"></h2><p></p></div>
 <a class="btn js-quote" href="#quote">線上詢價</a>
 </div>
 </section>
 
-<section id="about-intro" data-page="about" style="padding-bottom:0">
-<div class="wrap">
+<section id="about-intro" data-page="about">
+<div class="container">
 <div class="head">
-<p class="eyebrow">About</p>
 <h2 id="abH2"></h2>
 <p class="lead" id="abP"></p>
 </div>
 <div class="vals" id="vals"></div>
 </div>
 </section>
+<section id="brands" data-page="about">
+<div class="container">
+<div class="head">
+<h2 data-i="brH2">集團品牌</h2>
+</div>
+<div class="brands">
+<article class="brand" style="--b:var(--crimson)">
+<div class="logo"><img src="assets/draco.png" alt="DRACO Logistics"></div>
+<h3><span data-i="bDraco">登泰國際物流</span><small>Draco Logistics</small></h3>
+<ul data-cities="draco"></ul>
+</article>
+<article class="brand" style="--b:var(--seal)">
+<div class="logo"><img src="assets/seal.png" alt="SEAL GLOBAL Logistics"></div>
+<h3><span data-i="bSeal">崧盛</span><small>Seal Global Logistics</small></h3>
+<ul data-cities="seal"></ul>
+</article>
+<article class="brand" style="--b:var(--gold)">
+<div class="logo"><img src="assets/hrhino.png" alt="H.RHINO Logistics"></div>
+<h3><span data-i="bRhino">翃熙</span><small>H.Rhino Logistics</small></h3>
+<ul data-cities="rhino"></ul>
+</article>
+</div>
+</div>
+</section>
+
+<section id="why" data-page="about">
+<div class="container">
+<p class="slogan" id="slogan"></p>
+<div class="why-grid">
+<h2 id="whyH2"></h2>
+<div id="why-list"></div>
+</div>
+</div>
+</section>
+
 
 <section id="network" data-page="about">
-<div class="wrap">
+<div class="container">
 <div class="head">
-<p class="eyebrow">Network</p>
 <h2 data-i="nwH2">從東莞出發的 16 年</h2>
 <p class="lead" data-i="nwLead">依成立時間排列，可用品牌篩選。</p>
 </div>
@@ -590,24 +295,22 @@ section{padding:48px 0}
 </section>
 
 <section id="trust" data-page="about" class="dark">
-<div class="wrap">
+<div class="container">
 <div class="head">
-<p class="eyebrow">Credentials</p>
 <h2 data-i="trH2">資質與認證</h2>
 <p class="lead" data-i="trLead">跨境物流靠的是合規。以下是集團目前持有的資格與會員身分。</p>
 </div>
 <ul class="certs" id="certs"></ul>
 <div class="partners">
 <h3 data-i="paH3">合作船公司與航空公司</h3>
-<p>OOCL · EVERGREEN · COSCO · CMA CGM · HAPAG-LLOYD · YANG MING · HMM · ONE · MSC · MAERSK · SITC · WAN HAI · CULINES · PIL · ZIM · T.S. LINES · ESL · KMTC · AIR CHINA · CHINA SOUTHERN · KOREAN AIR · CHINA AIRLINES · EVA AIR · SHENZHEN AIRLINES · CATHAY PACIFIC · CHINA EASTERN · TURKISH AIRLINES · THAI</p>
+<ul class="carriers"><li>OOCL</li><li>Evergreen</li><li>COSCO</li><li>CMA CGM</li><li>Hapag-Lloyd</li><li>Yang Ming</li><li>HMM</li><li>ONE</li><li>MSC</li><li>Maersk</li><li>SITC</li><li>Wan Hai</li><li>CU Lines</li><li>PIL</li><li>ZIM</li><li>T.S. Lines</li><li>ESL</li><li>KMTC</li><li>Air China</li><li>China Southern</li><li>Korean Air</li><li>China Airlines</li><li>EVA Air</li><li>Shenzhen Airlines</li><li>Cathay Pacific</li><li>China Eastern</li><li>Turkish Airlines</li><li>Thai Airways</li></ul>
 </div>
 </div>
 </section>
 
 <section id="esg" data-page="about">
-<div class="wrap">
+<div class="container">
 <div class="head">
-<p class="eyebrow">Sustainability</p>
 <h2 data-i="esH2">永續 ESG</h2>
 </div>
 <div class="esg" id="esgGrid"></div>
@@ -615,9 +318,8 @@ section{padding:48px 0}
 </section>
 
 <section id="office-list" data-page="contact">
-<div class="wrap">
-<div class="head" style="margin-bottom:24px">
-<p class="eyebrow">Offices</p>
+<div class="container">
+<div class="head">
 <h2 id="offH2"></h2>
 </div>
 <div class="filters" role="group" id="offFilters"></div>
@@ -626,16 +328,15 @@ section{padding:48px 0}
 </section>
 
 <section class="cta-band" data-page="about">
-<div class="wrap">
+<div class="container">
 <div><h2 data-cta="about"></h2><p></p></div>
 <a class="btn js-quote" href="#quote">線上詢價</a>
 </div>
 </section>
 
 <section id="page-tools" data-page="tools">
-<div class="wrap">
+<div class="container">
 <div class="head">
-<p class="eyebrow">Calculators</p>
 <h2 id="toolH2"></h2>
 <p class="lead" id="toolLead"></p>
 </div>
@@ -661,11 +362,11 @@ section{padding:48px 0}
 <div class="tool" id="toolPane1" role="tabpanel" aria-labelledby="toolTab1" hidden>
 <form class="tool-form" id="multiForm" novalidate>
 <div>
-<h3 id="multiH3" style="font-size:22px;font-weight:900"></h3>
+<h3 id="multiH3"></h3>
 <p id="multiLead" class="tool-note"></p>
 </div>
 <div class="mrows" id="multiRows"></div>
-<button type="button" class="btn ghost" id="multiAdd" style="align-self:flex-start"></button>
+<button type="button" class="btn ghost" id="multiAdd"></button>
 <div class="f3">
 <div><label for="m-pal"></label><select id="m-pal"><option value="0">120 × 100</option><option value="1">120 × 80</option><option value="2">110 × 110</option></select></div>
 <div><label for="m-maxh"></label><input id="m-maxh" type="number" inputmode="decimal" min="0" step="any" value="150"></div>
@@ -680,9 +381,8 @@ section{padding:48px 0}
 </section>
 
 <section id="page-quote" data-page="quote">
-<div class="wrap">
+<div class="container quote-wrap">
 <div class="head">
-<p class="eyebrow">Quote</p>
 <h2 id="quoteH2"></h2>
 <p class="lead" id="quoteLead"></p>
 </div>
@@ -703,35 +403,33 @@ section{padding:48px 0}
 <div><label for="q-cbm"></label><input id="q-cbm" type="number" inputmode="decimal" min="0" step="any"></div>
 </div>
 <div><label for="q-note"></label><textarea id="q-note" rows="3"></textarea></div>
-<button class="btn" type="submit" id="quoteSubmit" style="align-self:flex-start"></button>
+<button class="btn" type="submit" id="quoteSubmit"></button>
 <p class="hint" id="quoteMsg" role="status" aria-live="polite"></p>
-<div id="quoteResult" hidden style="display:flex;flex-direction:column;gap:10px">
+<div id="quoteResult" hidden>
 <textarea id="quoteText" rows="10" readonly aria-label="Quote request text"></textarea>
-<button class="btn ghost" type="button" id="quoteCopy" style="align-self:flex-start"></button>
+<button class="btn ghost" type="button" id="quoteCopy"></button>
 </div>
 </form>
 </div>
 </section>
 
-<section id="page-weekly" data-page="weekly" style="padding-bottom:32px">
-<div class="wrap">
-<div class="head" style="margin-bottom:20px">
-<p class="eyebrow">Weekly Report</p>
+<section id="page-weekly" data-page="weekly">
+<div class="container">
+<div class="head">
 <h2 id="weeklyH2"></h2>
 <p class="lead" id="weeklyLead"></p>
 <p class="hint" id="weeklyOnly"></p>
 </div>
-<div class="filters" id="weeklyIssues" role="group" aria-label="Issues" style="margin-bottom:12px"></div>
+<div class="filters" id="weeklyIssues" role="group" aria-label="Issues"></div>
 <p class="hint" id="weeklyMsg" role="status" aria-live="polite"></p>
 </div>
 <div class="weekly-frame"><div id="weeklyHost"></div></div>
-<div class="wrap" style="margin-top:20px"><a class="btn ghost" id="weeklyOpen" href="#weekly" target="_blank" rel="noopener" hidden></a></div>
+<div class="container weekly-more"><a class="btn ghost" id="weeklyOpen" href="#weekly" target="_blank" rel="noopener" hidden></a></div>
 </section>
 
-<section id="start" data-page="contact" class="light" style="background:#fff;border-bottom:1px solid var(--line)">
-<div class="wrap">
+<section id="start" data-page="contact">
+<div class="container">
 <div class="head">
-<p class="eyebrow">Onboarding</p>
 <h2 id="onbH2"></h2>
 </div>
 <ol class="steps" id="onbSteps"></ol>
@@ -739,8 +437,8 @@ section{padding:48px 0}
 </section>
 
 <section id="page-contact" data-page="contact" class="contact">
-<div class="wrap">
-<div style="display:flex;flex-direction:column;gap:14px">
+<div class="container">
+<div>
 <h2 data-i="ctH2">有貨要走？跟我們說一聲</h2>
 <p data-i="ctP">告訴我們起運地、目的地與貨物內容，由離你最近的據點回覆。</p>
 </div>
@@ -753,9 +451,16 @@ section{padding:48px 0}
 </main>
 
 <footer>
-<div class="wrap">
+<div class="container">
 <img src="assets/draco-light.png" alt="DRACO Logistics">
-<span data-i="foot">DRACO GROUP · 登泰國際物流股份有限公司 · 誠信當責，邁向全球</span>
+<nav class="foot-links" aria-label="Footer">
+<a href="#services" data-i="nav2">服務項目</a>
+<a href="#warehousing" data-i="nav7">倉儲據點</a>
+<a href="#draco-one" data-i="navWms">WMS 線上查詢</a>
+<a href="#about" data-i="navAbout">關於集團</a>
+<a href="#contact" data-i="nav6">聯絡我們</a>
+</nav>
+<p class="foot-line" data-i="foot">Draco Group 登泰國際物流股份有限公司</p>
 </div>
 </footer>
 
@@ -765,9 +470,11 @@ section{padding:48px 0}
 <script src="i18n-dg.js"></script>
 <script src="i18n-copy.js"></script>
 <script src="i18n-lite.js"></script>
+<script src="i18n-hm.js"></script>
 <script src="offices.js"></script>
 <script src="tool.js"></script>
 <script src="weekly.js"></script>
+<script src="home.js"></script>
 <script src="site.js"></script>
 </body>
 </html>
