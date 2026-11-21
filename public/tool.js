@@ -101,7 +101,7 @@
       var c = BOX[i], box = el('div', null, 'cbox ' + row.state + (i === r.pick ? ' pick' : '')), top = el('div', null, 'cbox-top');
       top.appendChild(el('b', X.names[i])); top.appendChild(el('span', X[row.state], 'pill'));
       box.appendChild(top);
-      box.appendChild(el('div', (c.L / 100).toFixed(2) + ' × ' + (c.W / 100).toFixed(2) + ' × ' + (c.H / 100).toFixed(2) + ' m · ' + c.cbm + ' CBM · ' + num(c.pay) + ' kg', 'cspec'));
+      box.appendChild(el('div', (c.L / 100).toFixed(2) + ' × ' + (c.W / 100).toFixed(2) + ' × ' + (c.H / 100).toFixed(2) + ' m，' + c.cbm + ' CBM，' + num(c.pay) + ' kg', 'cspec'));
       box.appendChild(el('div', X.fit.replace('{n}', num(row.fit)), 'cfit'));
       [[X.volUse, row.vol], [X.wtUse, row.wt]].forEach(function (b) {
         var wrap = el('div', null, 'ubar'), fill = el('i'); fill.style.width = Math.min(100, b[1] * 100) + '%'; if (b[1] > 1) fill.className = 'full';
